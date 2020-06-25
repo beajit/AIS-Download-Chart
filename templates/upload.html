@@ -1,0 +1,30 @@
+<!doctype html>
+<title>Python Flask Server for charts</title>
+<h2>Select a file to upload</h2>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+<form method="post" action="/" enctype="multipart/form-data">
+    <dl>
+		<p>
+			<input type="file" name="file" autocomplete="off" required>
+		</p>
+    </dl>
+    	<h2>Select file type of the chart</h2>
+	   	<input type='checkbox' name='mycheckbox' value='png' checked>PNG<br>
+	   	<input type='checkbox' name='mycheckbox' value='pdf' > PDF<br>
+	   	<input type='checkbox' name='mycheckbox' value='eps' > EPS<br>
+	   	<input type='checkbox' name='mycheckbox' value='all'> All<br> 
+    
+    <p>
+		<input type="submit" value="Download Charts">
+	</p>
+</form>
